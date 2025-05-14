@@ -1,19 +1,27 @@
 {
-   "type": "module",
-   "dependencies": {
-      "@fastify/jwt": "^9.1.0",
-      "@fastify/postgres": "^6.0.2",
-      "@sinclair/typebox": "^0.34.33",
-      "@types/bcrypt": "^5.0.2",
-      "@types/fastify-jwt": "^0.8.3",
-      "@types/jsonwebtoken": "^9.0.9",
-      "bcrypt": "^5.1.1",
-      "fastify": "^5.3.2"
-   },
-   "devDependencies": {
-      "@types/jest": "^29.5.14",
-      "@types/supertest": "^6.0.3",
-      "jest": "^29.7.0",
-      "supertest": "^7.1.0"
-   }
+  "type": "module",
+  "scripts": {
+    "start": "bun run ./src/App.ts",
+    "dev": "bun run --watch ./src/App.ts",
+    "build": "bun build ./src/App.ts --outfile=./dist/index.js",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^9.1.0",
+    "@fastify/postgres": "^6.0.2",
+    "@sinclair/typebox": "^0.34.33",
+    "@types/bcrypt": "^5.0.2",
+    "@types/fastify-jwt": "^0.8.3",
+    "@types/jsonwebtoken": "^9.0.9",
+    "bcrypt": "^5.1.1",
+    "fastify": "^5.3.2",
+    "pino": "^9.6.0",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/supertest": "^6.0.3",
+    "jest": "^29.7.0",
+    "supertest": "^7.1.0"
+  }
 }
