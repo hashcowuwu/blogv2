@@ -28,6 +28,7 @@ import { Type } from "@sinclair/typebox";
 
 const articleRoutes: FastifyPluginCallback = async (fastify, options) => {
   // 获取文章列表
+
   fastify.get(
     "/articles",
     {
