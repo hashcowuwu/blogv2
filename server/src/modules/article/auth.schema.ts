@@ -27,3 +27,4 @@ const articleUpdateSchema = Type.Object({
 export type ArticleType = Static<typeof articleSchema>;
 export type ArticleCreateType = Static<typeof articleCreateSchema>;
 export type ArticleUpdateType = Static<typeof articleUpdateSchema>;
+
