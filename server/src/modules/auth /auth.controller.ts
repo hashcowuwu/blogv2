@@ -67,17 +67,19 @@ export async function loginHandler(
       { id: user.id, username: user.username, email: user.email },
       request.server.jwt,
     );
-    reply.setCookie("authToken", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/",
-    });
+    console.log("About to set authToken cookie:", token);
 
-    reply.send({
-      token,
-      user: { id: user.id, username: user.username, email: user.email },
-    });
+    reply
+      .setCookie("authToken", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "strict",
+        path: "/",
+      })
+      .send({
+        token,
+        user: { id: user.id, username: user.username, email: user.email },
+      });
   } catch (error) {
     console.error("登录失败:", error);
     reply.status(500).send({ message: "登录失败" });

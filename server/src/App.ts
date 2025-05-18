@@ -16,12 +16,15 @@ const server = Fastify({
 await server.register(cors, {
   // put your options here
   origin: "http://localhost:3000",
+  credentials: true,
 });
 
 server.register(cookie, {
   secret: "hhj20041008%",
   parseOptions: {},
 });
+console.log("@fastify/cookie plugin registered successfully.");
+
 async function main() {
   await server.register(databasePlugin); // databaseConfig 会在插件内部使用
   await server.register(authPlugin);
