@@ -51,7 +51,7 @@ export default function Home() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       // 重定向到首页
-      //window.location.href = "/dashboard";
+      window.location.href = "/dashboard";
       setLoading(false);
     } catch (error) {
       setError("网络错误，请稍后再试");
