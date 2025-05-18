@@ -31,6 +31,7 @@ export default function Home() {
     try {
       const response = await fetch("http://localhost:4000/auth/login", {
         method: "POST",
+        credentials:"include",
         headers: {
           "Content-Type": "application/json",
         },
@@ -50,7 +51,7 @@ export default function Home() {
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       // 重定向到首页
-      window.location.href = "/dashboard";
+      //window.location.href = "/dashboard";
       setLoading(false);
     } catch (error) {
       setError("网络错误，请稍后再试");
