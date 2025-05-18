@@ -1,6 +1,7 @@
 // src/modules/article/article.controller.ts
 import { FastifyRequest, FastifyReply } from "fastify";
 import { ArticleService } from "./article.service";
+import "@fastify/jwt";
 import {
   CreateArticleDto,
   UpdateArticleDto,
@@ -139,11 +140,9 @@ export const getArticlesByCategoryHandler = async (
     reply.send(articles);
   } catch (error: any) {
     console.error("Error fetching articles by category:", error);
-    reply
-      .status(500)
-      .send({
-        message: error.message || "Failed to fetch articles by category",
-      });
+    reply.status(500).send({
+      message: error.message || "Failed to fetch articles by category",
+    });
   }
 };
 

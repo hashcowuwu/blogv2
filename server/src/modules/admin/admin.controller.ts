@@ -89,13 +89,28 @@ export const deleteUserHandler = async (
   }
 };
 
+interface CustomRequest extends FastifyRequest {
+  user?: {
+    id: number;
+    username: string;
+  };
+}
+
 export const getDashboardHandler = async (
-  request: FastifyRequest,
+  request: CustomRequest,
   reply: FastifyReply,
 ) => {
   try {
     // 你的仪表盘逻辑
-    const dashboardData = { message: "Admin Dashboard" };
+    const user = request.user;
+    if (!user) {
+      return reply.status(401).send({ message: "Unauthorized" });
+    }
+    const dashboardData = {
+      message: "Welcome to the Admin Dashboard",
+      userId: user.id,
+      userName: user.username,
+    };
     reply.send(dashboardData);
   } catch (error) {
     console.error("Error fetching dashboard data:", error);
