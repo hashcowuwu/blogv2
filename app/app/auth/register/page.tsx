@@ -2,6 +2,10 @@ import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 
 export default function Register() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  
   return (
     <div className="h-screen bg-gray-100 flex items-center justify-center">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-96">
